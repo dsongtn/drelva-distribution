@@ -1,76 +1,83 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Drelva Access public preview: private-first device authorization via native operating system packages.">
-<title>Drelva Access — Native Package Sources</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,nosnippet,noarchive,noimageindex">
+<meta name="googlebot" content="noindex,nofollow,nosnippet,noarchive,noimageindex">
+<meta name="bingbot" content="noindex,nofollow,nosnippet,noarchive,noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Drelva</title>
 <style>
 :root{color-scheme:light dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
-*{box-sizing:border-box}body{margin:0;background:#10131a;color:#e8ecf3;line-height:1.6}
-main{max-width:940px;padding:48px 24px 100px;margin:auto}
-h1{font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.04em;line-height:1.1;margin:14px 0}
-h2{font-size:1.35rem;margin:34px 0 14px}
-p{max-width:75ch;color:#c4ccd9}.tag{font-size:.75rem;letter-spacing:.12em;color:#9bd2ff;text-transform:uppercase;font-weight:700}
-a{color:#9bd2ff;text-underline-offset:3px}
-.small{font-size:.88rem;color:#99a7ba}.warn{border-left:3px solid #e9b45e;background:#28241f;padding:12px 17px;border-radius:4px;color:#f5d9aa}
-.panel{background:#1a202b;border:1px solid #394353;border-radius:12px;padding:18px 20px;margin:16px 0}
-code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.87rem}
-pre{overflow-x:auto;background:#0b1019;color:#d3e9ff;border:1px solid #354254;padding:18px;border-radius:9px}
-h3{margin:10px 0;font-size:1.03rem}ul{padding-left:25px}li{padding:4px 0}
-footer{border-top:1px solid #354254;margin-top:42px;padding-top:25px;color:#99a7ba}
+*{box-sizing:border-box}
+body{margin:0;background:#12151a;color:#e8ebee;font-size:14px;line-height:1.55}
+main{max-width:760px;margin:0 auto;padding:46px 22px 80px}
+header{display:flex;align-items:baseline;gap:13px;padding-bottom:16px;border-bottom:1px solid #3a3e46}
+h1{font-size:23px;font-weight:600;letter-spacing:-.03em;margin:0}
+small,.muted{color:#9da7b5}
+h2{font-size:15px;font-weight:600;margin:31px 0 10px}
+p{color:#c4cbd4;max-width:70ch}
+section{margin:20px 0}
+code,pre{font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{padding:13px 14px;border:1px solid #383e49;background:#191e25;border-radius:6px;overflow:auto;white-space:pre}
+a{color:#afc5dc;text-decoration:underline;text-underline-offset:3px}
+footer{margin-top:46px;border-top:1px solid #3a3e46;padding-top:17px;font-size:12px}
 </style>
 </head>
-<body><main>
-<span class="tag">Preview distribution · v0.1.1</span>
-<h1>Drelva Access</h1>
-<p>A small, public opt-in gateway to a privately authorized software ecosystem. Install through your existing operating-system package manager, then authenticate with the owner's server. <strong>Private applications are not distributed here.</strong></p>
-<p class="warn">Status: the gateway installs and verifies the public identity provider; enrollment is not live until the OAuth public client and server-side entitlement API are registered. No application or download access is granted merely by installing Drelva. Signing key below is a development-preview key.</p>
-<h2>Native Linux installation</h2>
-<div class="panel">
-<h3>Fedora · DNF5</h3>
-<p>First verify the signing-key fingerprint below. Register the signed repository, then install:</p>
+<body>
+<main>
+<header><h1>Drelva</h1><small>0.1.1 · utility preview</small></header>
+<p>Small cross-platform command-line tool. Installation files and package sources are provided below.</p>
+
+<section>
+<h2>Fedora</h2>
 <pre>sudo dnf config-manager addrepo --from-repofile=https://dsongtn.github.io/drelva-distribution/drelva.repo
 sudo dnf install drelva
 drelva doctor</pre>
-<p class="small">DNF verifies both the RPM signature and signed repository metadata. Confirm the preview key fingerprint when prompted.</p>
-</div>
-<div class="panel">
-<h3>Debian / Ubuntu · APT</h3>
-<p>Download the public key and source definition without disabling signature checks:</p>
+</section>
+
+<section>
+<h2>Debian / Ubuntu</h2>
 <pre>curl -fsSLo /tmp/drelva-preview.asc https://dsongtn.github.io/drelva-distribution/keys/drelva-preview.asc
 gpg --show-keys --with-fingerprint /tmp/drelva-preview.asc
-# Compare fingerprint with the independent expected value below.
 sudo install -Dm644 /tmp/drelva-preview.asc /etc/apt/keyrings/drelva.asc
 curl -fsSLo /tmp/drelva.sources https://dsongtn.github.io/drelva-distribution/drelva.sources
 sudo install -m644 /tmp/drelva.sources /etc/apt/sources.list.d/drelva.sources
 sudo apt update
 sudo apt install drelva
 drelva doctor</pre>
-<p class="small">The source uses a restricted Signed-By key. Install curl and GnuPG first if your minimal OS image does not include them.</p>
-</div>
-<h2>Windows and macOS</h2>
-<div class="panel">
-<h3>Windows</h3>
-<p>The <a href="https://github.com/dsongtn/drelva-distribution/releases/tag/v0.1.1">public release</a> contains an unattended-capable per-user Windows installer. <strong>It is currently unsigned</strong> and is therefore a development preview, not a certified Microsoft Store or WinGet community listing. WinGet manifest submission requires separate review.</p>
-<p>Alternatively, if Scoop is installed, the <a href="https://github.com/dsongtn/scoop-drelva">public Drelva Scoop bucket</a> provides a verified per-user installation:</p>
+<p class="muted">Compare the key fingerprint shown below before installing the repository key. Minimal installations may need <code>curl</code>, <code>gnupg</code>, and <code>ca-certificates</code>.</p>
+</section>
+
+<section>
+<h2>Windows</h2>
+<p><a href="https://github.com/dsongtn/drelva-distribution/releases/tag/v0.1.1">Installer downloads</a> (development preview; Windows installer is not digitally signed).</p>
+<p>With Scoop already installed:</p>
 <pre>scoop bucket add drelva https://github.com/dsongtn/scoop-drelva.git
 scoop install drelva
 drelva doctor</pre>
-<p class="small">This Scoop installation and removal were tested on Windows 11. Scoop is not preinstalled with Windows.</p>
-</div>
-<div class="panel">
-<h3>macOS · Homebrew tap</h3>
+</section>
+
+<section>
+<h2>macOS</h2>
+<p>With Homebrew already installed:</p>
 <pre>brew tap dsongtn/drelva
 brew install drelva
 drelva doctor</pre>
-<p class="small">Third-party Homebrew tap; Homebrew is not preinstalled on macOS. A Developer ID/notarized PKG is not yet available.</p>
-</div>
-<h2>Repository verification</h2>
-<p>The preview signing-key fingerprint is:</p>
+<p class="muted">The macOS PKG in the downloads is not notarized.</p>
+</section>
+
+<section>
+<h2>Package verification</h2>
+<p class="muted">Repository signing-key fingerprint (preview):</p>
 <pre>AF08 1091 2D6A 5166 E193 C21A 894F 3FED FC60 AE33</pre>
-<p>The key is <a href="./keys/drelva-preview.asc">available for inspection</a>. Its private counterpart is not hosted here. Public gateway artifacts contain no administrator tokens, client secrets, private Forgejo applications or private repositories.</p>
+<p><a href="./keys/drelva-preview.asc">Signing key</a> · <a href="https://github.com/dsongtn/drelva-distribution/releases/tag/v0.1.1">Versioned files and checksums</a></p>
+</section>
+
 <footer>
-<a href="https://github.com/dsongtn/drelva-distribution">Distribution repository</a> · <a href="https://github.com/dsongtn/drelva-distribution/releases/tag/v0.1.1">Downloads</a> · <a href="./drelva.repo">DNF source</a> · <a href="./drelva.sources">APT source</a>
-<p class="small">Drelva is a provisional name. Preview builds are provided for testing, without guarantees of marketplace acceptance, notarization or working private enrollment.</p>
+<span class="muted">Drelva · 0.1.1 · development build</span>
 </footer>
-</main></body></html>
+</main>
+</body>
+</html>
