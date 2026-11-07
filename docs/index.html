@@ -52,6 +52,11 @@ drelva doctor</pre>
 <div class="panel">
 <h3>Windows</h3>
 <p>The <a href="https://github.com/dsongtn/drelva-distribution/releases/tag/v0.1.1">public release</a> contains an unattended-capable per-user Windows installer. <strong>It is currently unsigned</strong> and is therefore a development preview, not a certified Microsoft Store or WinGet community listing. WinGet manifest submission requires separate review.</p>
+<p>Alternatively, if Scoop is installed, the <a href="https://github.com/dsongtn/scoop-drelva">public Drelva Scoop bucket</a> provides a verified per-user installation:</p>
+<pre>scoop bucket add drelva https://github.com/dsongtn/scoop-drelva.git
+scoop install drelva
+drelva doctor</pre>
+<p class="small">This Scoop installation and removal were tested on Windows 11. Scoop is not preinstalled with Windows.</p>
 </div>
 <div class="panel">
 <h3>macOS · Homebrew tap</h3>

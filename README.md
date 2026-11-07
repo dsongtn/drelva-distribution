@@ -12,7 +12,7 @@ See the [installation site](https://dsongtn.github.io/drelva-distribution/) for 
 
 - **Debian/Ubuntu:** import the independently verified public repository key and install the `drelva.sources` file. Then `sudo apt update && sudo apt install drelva`.
 - **Fedora:** install the `drelva.repo` source using DNF5 and approve the verified package signing key. Then `sudo dnf install drelva`.
-- **Windows:** a per-user, unattended-capable Inno Setup installer is available in Releases. A WinGet community manifest is prepared separately, but public catalog availability requires Microsoft review.
+- **Windows:** a per-user Inno Setup installer is available in Releases. If Scoop is installed, the public [Drelva Scoop bucket](https://github.com/dsongtn/scoop-drelva) supports `scoop bucket add drelva https://github.com/dsongtn/scoop-drelva.git` and `scoop install drelva`; the exact public installation/uninstall test passed on Windows 11. A WinGet community manifest passed local validation but has NOT been accepted by Microsoft.
 - **macOS:** a separate public third-party Homebrew tap provides the portable executable. Homebrew itself is not preinstalled. Apple Developer ID notarization is not available for this preview.
 
 Current platform packages contain no password, package registry credentials, privileged code, injected services or auto-start tasks. They install only the opt-in CLI and documentation.
