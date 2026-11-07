@@ -1,0 +1,11 @@
+PackageIdentifier: Drelva.DrelvaAccess
+PackageVersion: 0.1.1
+InstallerType: inno
+Scope: user
+UpgradeBehavior: install
+Installers:
+  - Architecture: x64
+    InstallerUrl: https://github.com/dsongtn/drelva-distribution/releases/download/v0.1.1/DrelvaAccess-0.1.1-Windows-x64-setup.exe
+    InstallerSha256: 01ADDCC4EF89B66FD5E6515A0885E383CB8D807CADE12979A5B818178C57E06C
+ManifestType: installer
+ManifestVersion: 1.6.0
