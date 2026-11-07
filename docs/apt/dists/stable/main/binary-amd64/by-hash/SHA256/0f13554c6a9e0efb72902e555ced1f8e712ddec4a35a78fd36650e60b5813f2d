@@ -1,0 +1,15 @@
+Package: drelva
+Version: 0.1.1-1
+Architecture: amd64
+Maintainer: Drelva Maintainers <268950198+dsongtn@users.noreply.github.com>
+Installed-Size: 6144
+Filename: pool/main/d/drelva/drelva_0.1.1_amd64.deb
+Size: 2674554
+MD5sum: a0ff6ee45ab6763d908f92d6756572f8
+SHA1: c17d92b79ccfbc32ca7c9fc60abc29b4acb9c9e5
+SHA256: 2f86c23963819507234ec2ff9ba9486a3c57417cce95008ae349dc6e123efcc3
+Section: utils
+Priority: optional
+Homepage: https://github.com/dsongtn/drelva-distribution
+Description: Public opt-in gateway for server-authorized private software access (preview)
+

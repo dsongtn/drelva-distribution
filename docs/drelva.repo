@@ -1,0 +1,8 @@
+[drelva]
+name=Drelva Access Preview
+baseurl=https://dsongtn.github.io/drelva-distribution/rpm/$basearch/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://dsongtn.github.io/drelva-distribution/keys/drelva-preview.asc
+metadata_expire=24h

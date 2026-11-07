@@ -1,0 +1,6 @@
+Types: deb
+URIs: https://dsongtn.github.io/drelva-distribution/apt
+Suites: stable
+Components: main
+Architectures: amd64 arm64
+Signed-By: /etc/apt/keyrings/drelva.asc
