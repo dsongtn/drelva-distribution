@@ -2,20 +2,17 @@ PackageIdentifier: Drelva.DrelvaAccess
 PackageVersion: 0.1.1
 PackageLocale: en-US
 Publisher: Drelva
-PublisherUrl: https://github.com/dsongtn/drelva-distribution
-PackageName: Drelva Access
+PublisherUrl: https://dsongtn.github.io/drelva-distribution/
+PackageName: Drelva
 PackageUrl: https://dsongtn.github.io/drelva-distribution/
 License: Proprietary
-ShortDescription: Opt-in gateway for owner-approved private software access.
+ShortDescription: Lightweight cross-platform command-line utility.
 Description: |
-  Drelva Access is a public, credential-free gateway client for privately
-  managed software. It checks the public identity server and requests
-  explicit browser-based device approval. Private packages and their
-  authorization remain server controlled. OAuth enrollment is not yet
-  enabled for this development preview.
+  Drelva is a small command-line utility for supported desktop platforms.
+  The current preview provides version and diagnostic commands.
 Tags:
-  - access
-  - device-enrollment
-  - oauth
+  - cli
+  - utility
+  - cross-platform
 ManifestType: defaultLocale
 ManifestVersion: 1.6.0
